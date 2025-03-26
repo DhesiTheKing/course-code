@@ -1,59 +1,96 @@
-const englishVocabularyAssessment = [
-    {
-      question: "What is the opposite of 'Big'?",
+const englishAlphabetAssessment = [
+  {
+      question: "What is 'A' for?",
       options: [
-        { text: "Small", isCorrect: true },
-        { text: "Tall", isCorrect: false },
-        { text: "Large", isCorrect: false },
-        { text: "Huge", isCorrect: false },
+          { text: "Apple", isCorrect: true },
+          { text: "Ball", isCorrect: false },
+          { text: "Cat", isCorrect: false },
+          { text: "Dog", isCorrect: false },
       ],
-    },
-    {
-      question: "Which word means 'a place where you learn'?",
+  },
+  {
+      question: "What is 'B' for?",
       options: [
-        { text: "School", isCorrect: true },
-        { text: "Park", isCorrect: false },
-        { text: "Zoo", isCorrect: false },
-        { text: "Shop", isCorrect: false },
+          { text: "Ball", isCorrect: true },
+          { text: "Apple", isCorrect: false },
+          { text: "Elephant", isCorrect: false },
+          { text: "Fish", isCorrect: false },
       ],
-    },
-    {
-      question: "What is the plural of 'Cat'?",
+  },
+  {
+      question: "What is 'C' for?",
       options: [
-        { text: "Cats", isCorrect: true },
-        { text: "Cates", isCorrect: false },
-        { text: "Caties", isCorrect: false },
-        { text: "Cat", isCorrect: false },
+          { text: "Cat", isCorrect: true },
+          { text: "Dog", isCorrect: false },
+          { text: "Orange", isCorrect: false },
+          { text: "Zebra", isCorrect: false },
       ],
-    },
-    {
-      question: "Which word means 'to jump high'?",
+  },
+  {
+      question: "What is 'D' for?",
       options: [
-        { text: "Leap", isCorrect: true },
-        { text: "Run", isCorrect: false },
-        { text: "Walk", isCorrect: false },
-        { text: "Crawl", isCorrect: false },
+          { text: "Dog", isCorrect: true },
+          { text: "Monkey", isCorrect: false },
+          { text: "Banana", isCorrect: false },
+          { text: "Sun", isCorrect: false },
       ],
-    },
-    {
-      question: "What is the synonym of 'Happy'?",
+  },
+  {
+      question: "What is 'E' for?",
       options: [
-        { text: "Joyful", isCorrect: true },
-        { text: "Sad", isCorrect: false },
-        { text: "Angry", isCorrect: false },
-        { text: "Tired", isCorrect: false },
+          { text: "Elephant", isCorrect: true },
+          { text: "Lion", isCorrect: false },
+          { text: "Parrot", isCorrect: false },
+          { text: "Tree", isCorrect: false },
       ],
-    },
-    {
-      question: "Which word means 'a place where you sleep'?",
+  },
+  {
+      question: "What is 'F' for?",
       options: [
-        { text: "Bedroom", isCorrect: true },
-        { text: "Kitchen", isCorrect: false },
-        { text: "Garden", isCorrect: false },
-        { text: "School", isCorrect: false },
+          { text: "Fish", isCorrect: true },
+          { text: "Table", isCorrect: false },
+          { text: "Grapes", isCorrect: false },
+          { text: "Car", isCorrect: false },
       ],
-    },
-  ];
+  },
+  {
+      question: "What is 'G' for?",
+      options: [
+          { text: "Grapes", isCorrect: true },
+          { text: "Tiger", isCorrect: false },
+          { text: "Book", isCorrect: false },
+          { text: "Chair", isCorrect: false },
+      ],
+  },
+  {
+      question: "What is 'H' for?",
+      options: [
+          { text: "House", isCorrect: true },
+          { text: "Pen", isCorrect: false },
+          { text: "Water", isCorrect: false },
+          { text: "Sun", isCorrect: false },
+      ],
+  },
+  {
+      question: "What is 'I' for?",
+      options: [
+          { text: "Ice Cream", isCorrect: true },
+          { text: "Kite", isCorrect: false },
+          { text: "Nest", isCorrect: false },
+          { text: "Clock", isCorrect: false },
+      ],
+  },
+  {
+      question: "What is 'J' for?",
+      options: [
+          { text: "Jug", isCorrect: true },
+          { text: "Leaf", isCorrect: false },
+          { text: "Mango", isCorrect: false },
+          { text: "Zebra", isCorrect: false },
+      ],
+  },
+];
+
   
   const englishGrammarAssessment = [
     {
@@ -227,7 +264,7 @@ const englishVocabularyAssessment = [
   ];
   
   const englishAssessmentData = [
-    englishVocabularyAssessment,
+    englishAlphabetAssessment,
     englishGrammarAssessment,
     englishComprehensionAssessment,
     englishSentenceFormationAssessment,

@@ -1,28 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { englishAssessmentContent } from "./AssesmentData";
+import { tamilAssessmentContent } from "./TamilAssesmentContents";
 
-// Function to shuffle the options
 const shuffleArray = (array) => {
   const shuffledArray = [...array];
   for (let i = shuffledArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]; // Swap elements
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
   }
   return shuffledArray;
 };
 
-const EnglishAssessment = ({assesmentType}) => {
-
-  const assessment = englishAssessmentContent();
-  const assessmentData = assessment[assesmentType];
-
-  console.log(assessment[0]);
-  console.log(assesmentType);
+const TamilAssessment = ({ assessmentType }) => {
+  const assessment = tamilAssessmentContent();
+  console.log(assessment);
   
+  const assessmentData = assessment[assessmentType];
+  console.log(assessmentType);
   
 
+  console.log(assessmentData);
+  
 
-  const [isStarted, setIsStarted] = useState(false); // Track if quiz has started
+  const [isStarted, setIsStarted] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -30,19 +29,14 @@ const EnglishAssessment = ({assesmentType}) => {
   const [isFinished, setIsFinished] = useState(false);
   const [timer, setTimer] = useState(60);
 
-
-  useEffect(()=>{
-
+  useEffect(() => {
     setCurrentQuestionIndex(0);
     setScore(0);
     setIsFinished(false);
     setTimer(60);
     setIsStarted(false);
+  }, [assessmentType]);
 
-
-  },[assesmentType])
-
-  // Shuffle the options once when the question is first displayed
   const [shuffledOptions, setShuffledOptions] = useState([]);
 
   useEffect(() => {
@@ -56,23 +50,17 @@ const EnglishAssessment = ({assesmentType}) => {
   }, [timer, isStarted, isFinished]);
 
   useEffect(() => {
-    // Shuffle options only once when the question is loaded
     setShuffledOptions(shuffleArray(assessmentData[currentQuestionIndex].options));
-  }, [currentQuestionIndex]); // Only re-shuffle when the current question changes
+  }, [currentQuestionIndex]);
 
   const handleAnswerSelect = (option) => {
-    if (isAnswered) return; // Prevent selecting more than one answer
+    if (isAnswered) return;
 
     setSelectedOption(option);
     setIsAnswered(true);
-
-    // If answer is correct, increment the score
     if (option.isCorrect) {
       setScore(score + 1);
     }
-
-    // Optionally, you can stop the timer immediately after an answer
-    // setTimer(0); // Uncomment this line if you want to stop the timer when an answer is selected
   };
 
   const handleNextQuestion = () => {
@@ -80,9 +68,9 @@ const EnglishAssessment = ({assesmentType}) => {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
       setSelectedOption(null);
       setIsAnswered(false);
-      setTimer(30); // Reset the timer for the next question
+      setTimer(30);
     } else {
-      setIsFinished(true); // End the quiz if all questions are answered
+      setIsFinished(true);
     }
   };
 
@@ -93,52 +81,50 @@ const EnglishAssessment = ({assesmentType}) => {
   return (
     <div className="max-w-4xl mx-auto p-8 bg-gray-50 rounded-lg shadow-lg">
       {!isStarted ? (
-        // Display the Start Button if the quiz hasn't started
         <div className="text-center">
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
-            English Assessment {assesmentType!=3 ? assesmentType+1 : "Final"}
+            தமிழ் மதிப்பீடு {assessmentType !== 3 ? assessmentType + 1 : "இறுதி"}
           </h1>
           <p className="text-lg text-center text-gray-700 mb-12">
-            Click 'Start' to begin the assessment.
+            தொடங்க 'Start' பொத்தானை அழுத்தவும்.
           </p>
           <button
-            onClick={() => setIsStarted(true)} // Set isStarted to true when the button is clicked
+            onClick={() => setIsStarted(true)}
             className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
           >
-            Start
+            தொடங்கு
           </button>
         </div>
       ) : (
-        // Render the assessment when isStarted is true
         <>
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
-            English Assessment
+            தமிழ் மதிப்பீடு
           </h1>
           <p className="text-lg text-center text-gray-700 mb-12">
-            Choose the correct sign. Click 'Next' to move to the next question.
+            சரியான விடையை தேர்ந்தெடுக்கவும். அடுத்த கேள்விக்கு 'Next' அழுத்தவும்.
           </p>
 
           {isFinished ? (
             <div className="text-center">
               <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-                Your Score: {score} / {totalQuestions}
+                உங்கள் மதிப்பெண்: {score} / {totalQuestions}
               </h2>
               <h3
                 className={`text-xl font-semibold ${
                   score >= passThreshold ? "text-green-500" : "text-red-500"
                 }`}
               >
-                {score >= passThreshold ? "Pass" : "Fail"}
+                {score >= passThreshold ? "தேர்ச்சி" : "தோல்வி"}
               </h3>
             </div>
           ) : (
             <>
               <div className="flex justify-between mb-6">
                 <div className="text-lg font-semibold text-gray-800">
-                  Question: {currentQuestionIndex + 1}/{totalQuestions}
+                  கேள்வி: {currentQuestionIndex + 1}/{totalQuestions}
                 </div>
                 <div className="text-lg font-semibold text-gray-800">
-                  Time: {timer}s
+                  நேரம்: {timer} விநாடிகள்
                 </div>
               </div>
 
@@ -166,7 +152,7 @@ const EnglishAssessment = ({assesmentType}) => {
                             option.isCorrect ? "bg-green-500" : "bg-red-500"
                           }`}
                         >
-                          {option.isCorrect ? "Correct" : "Wrong"}
+                          {option.isCorrect ? "சரியானது" : "தவறு"}
                         </div>
                       )}
                     </div>
@@ -180,7 +166,7 @@ const EnglishAssessment = ({assesmentType}) => {
                     onClick={handleNextQuestion}
                     className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
                   >
-                    Next Question
+                    அடுத்த கேள்வி
                   </button>
                 )}
               </div>
@@ -192,4 +178,4 @@ const EnglishAssessment = ({assesmentType}) => {
   );
 };
 
-export default EnglishAssessment;
+export default TamilAssessment;

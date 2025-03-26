@@ -8,6 +8,7 @@ import Softskills from './contents/softskills/softskills';
 import Selfcare from './contents/selfcare/Selfcare';
 import MathLearning from './contents/maths/Maths';
 import Environmental from './contents/environmental/Environmental';
+import TamilLanguage from './contents/Tamil/Tamil';
 
 
 function LearningSpace() {
@@ -30,7 +31,9 @@ function LearningSpace() {
           learn == "softskills" ? <Softskills/> : 
           
           learn == "maths" ? <MathLearning/> : 
-          learn == "ENVIRONMENTAL SCIENCE" ? <Environmental/> :<></>
+          learn == "ENVIRONMENTAL SCIENCE" ? <Environmental/> :
+          
+          learn == "tamil" ? <TamilLanguage/> : <></>
           
           
           }

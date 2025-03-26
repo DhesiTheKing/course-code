@@ -5,6 +5,7 @@ import LoginForm from './Auth/LoginForm';
 import SignupForm from './Auth/SignupForm';
 import { Home } from './pages/Home';
 import { LearningPortal } from './pages/LearningPortal';
+import BlindPortal from './Learning/BlindLearning/BlindPortal';
 
 function PrivateRoute({ children }) {
   const { isAuthenticated } = useAuth();
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path='/learning' element={<LearningPortal/>}/>
+          <Route path='/special' element={<BlindPortal/>}/>
           <Route
             path="/home"
             element={

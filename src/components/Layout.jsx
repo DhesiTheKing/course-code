@@ -17,7 +17,8 @@ function Layout({ children }) {
 
 function speachRedirect(text){
 
-  const transcript = text.toLowerCase();
+  const transcript1 = text.toLowerCase();
+  const transcript = transcript1.replace(".","");
   
   if(transcript === 'go to homepage' || transcript === 'go to home' || transcript === 'go to mainpage' || transcript === 'go to main page'){
     navigate("/home")
@@ -32,14 +33,25 @@ function speachRedirect(text){
   if(transcript === 'go to english page' || transcript === 'go to englishpage'){
     navigate("/learning",{state:"english"})
   }
-
-
+  if(transcript === 'go to tamil page' || transcript === 'go to tamilpage'){
+    navigate("/learning",{state:"tamil"})
+  }
+  if(transcript === 'go to maths page' || transcript === 'go to mathspage'){
+    navigate("/learning",{state:"maths"})
+  }
+  if(transcript === 'go to english page' || transcript === 'go to englishpage'){
+    navigate("/learning",{state:"english"})
+  }
   if(transcript === 'go to selfcare' || transcript === 'go to self care'){
     navigate("/learning",{state:"self care"})
   }
 
   if(transcript === 'go to soft skills' || transcript === 'go to softskills'){
     navigate("/learning",{state:"softskills"})
+  }
+
+  if(transcript === 'go to learning page' || transcript == 'go to learningpage' || transcript === 'go to learning page.' || transcript === 'go to learningpage.'){
+    navigate("/special",{state:"english"});
   }
 
   

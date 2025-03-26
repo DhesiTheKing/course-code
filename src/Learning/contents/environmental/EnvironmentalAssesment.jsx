@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { englishAssessmentContent } from "./AssesmentData";
+import { environmentalAssessmentContent } from "./AssesementData";
 
 // Function to shuffle the options
 const shuffleArray = (array) => {
@@ -11,9 +11,9 @@ const shuffleArray = (array) => {
   return shuffledArray;
 };
 
-const EnglishAssessment = ({assesmentType}) => {
+const EnvironmentalAssessment = ({assesmentType}) => {
 
-  const assessment = englishAssessmentContent();
+  const assessment = environmentalAssessmentContent();
   const assessmentData = assessment[assesmentType];
 
   console.log(assessment[0]);
@@ -96,7 +96,7 @@ const EnglishAssessment = ({assesmentType}) => {
         // Display the Start Button if the quiz hasn't started
         <div className="text-center">
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
-            English Assessment {assesmentType!=3 ? assesmentType+1 : "Final"}
+            Sign Language Assessment {assesmentType!=3 ? assesmentType+1 : "Final"}
           </h1>
           <p className="text-lg text-center text-gray-700 mb-12">
             Click 'Start' to begin the assessment.
@@ -112,7 +112,7 @@ const EnglishAssessment = ({assesmentType}) => {
         // Render the assessment when isStarted is true
         <>
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
-            English Assessment
+            Environmental Assessment
           </h1>
           <p className="text-lg text-center text-gray-700 mb-12">
             Choose the correct sign. Click 'Next' to move to the next question.
@@ -192,4 +192,4 @@ const EnglishAssessment = ({assesmentType}) => {
   );
 };
 
-export default EnglishAssessment;
+export default EnvironmentalAssessment;

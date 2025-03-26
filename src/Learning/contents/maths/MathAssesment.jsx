@@ -96,7 +96,7 @@ const MathAssessment = ({assesmentType}) => {
         // Display the Start Button if the quiz hasn't started
         <div className="text-center">
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
-            Sign Language Assessment {assesmentType!=3 ? assesmentType+1 : "Final"}
+            Maths Assessment {assesmentType!=3 ? assesmentType+1 : "Final"}
           </h1>
           <p className="text-lg text-center text-gray-700 mb-12">
             Click 'Start' to begin the assessment.
@@ -112,7 +112,7 @@ const MathAssessment = ({assesmentType}) => {
         // Render the assessment when isStarted is true
         <>
           <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">
-            Sign Language Assessment
+            Maths Assessment
           </h1>
           <p className="text-lg text-center text-gray-700 mb-12">
             Choose the correct sign. Click 'Next' to move to the next question.

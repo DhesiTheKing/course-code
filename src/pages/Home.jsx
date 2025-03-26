@@ -67,6 +67,12 @@ function testSpeech(text) {
       navigate("/learning" ,{state:"ENVIRONMENTAL SCIENCE"})
     }
 
+    if(name == "தமிழ்"){
+      navigate("/learning" ,{state:"tamil"})
+    }
+
+
+
   }
 
   const navigate = useNavigate();
@@ -179,7 +185,7 @@ function testSpeech(text) {
               <h2 id="recommended-heading" className="text-xl font-semibold mb-4">
                 Recommended for You
               </h2>
-              <div className="h-full grid grid-cols-1 md:grid-cols-4 gap-4 cursor-pointer">
+              <div className="h-full grid grid-cols-1 md:grid-cols-2 gap-4 cursor-pointer">
                 {Recommend[Recommendation].map((item) => (
                 <>
                   <div className="card bg-white w-full hover:shadow-xl transition-shadow border dark:bg-transparent dark:text-white" >

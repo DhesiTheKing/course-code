@@ -1,17 +1,22 @@
 import React from 'react'
-
 import helperUtils from '../../../utils/Helper'
-import { content } from './EnvironmentContent'
+import TamilContent from './Content'
 import { ArrowRight , ArrowLeft } from 'lucide-react'
-import EnvironmentalScienceIntro from './EnvironmentalIntro'
-import EnvironmentalAssessment from './EnvironmentalAssesment'
+import TamilLanguageIntro from './TamilIntro'
 
-const Environmental = () => {
+import TamilAssessment from './TamilAssesment'
+
+
+
+const TamilLanguage = () => {
 
     const {signLearning,setSignLearning} = helperUtils();
-    const contents = content();    
+    const contents = TamilContent();   
 
+
+    
     const assesmentType =contents[signLearning];
+
     console.log(assesmentType+" this");
     console.log("sign learning :"+signLearning);
     
@@ -22,9 +27,9 @@ const Environmental = () => {
 
   return (
     <>
-    {(signLearning===1 || signLearning ===3 || signLearning === 5 && signLearning!=-1) || signLearning == 8 ? <EnvironmentalAssessment assesmentType={assesmentType}/> :
+    {(signLearning%2!=0 && signLearning!=-1) || signLearning == 7 ? <TamilAssessment assessmentType={assesmentType}/> :
 
-    signLearning == -1 ? <EnvironmentalScienceIntro /> : 
+    signLearning == -1 ? <TamilLanguageIntro /> : 
     
     <div className="max-w-6xl mx-auto p-8 rounded-lg shadow-lg bg-yellow-50">
         <h1 className="text-4xl font-bold text-center text-blue-600 mb-6">
@@ -41,11 +46,11 @@ const Environmental = () => {
             >
             <img
                 src={alphabet.url}
-                alt={`Sign for ${alphabet.contentType}`}
+                alt={alphabet.url}
                 className="rounded-lg mb-4"
             />
             <h2 className="text-xl font-bold text-gray-800">
-                {alphabet.topic}
+                {alphabet.letter}
             </h2>
             
             </div>
@@ -66,7 +71,7 @@ const Environmental = () => {
             PREVIOUS
         </button>
         :<></>}
-        {signLearning <= 7 ? 
+        {signLearning <= 6? 
         <button className='btn btn-primary w-56 text-white font-bold'
         onClick={()=>{setSignLearning(signLearning+1)}}
         >
@@ -80,4 +85,4 @@ const Environmental = () => {
   )
 }
 
-export default Environmental;
+export default TamilLanguage

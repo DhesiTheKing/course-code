@@ -68,7 +68,7 @@ const ClimateChange = [
     { topic: "Ozone Layer Depletion", url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgIXr-lv87jWmoGjyKkZIro-bPOMWfrpB-Jg&s" }
 ];
 
-const EnvironmentalScienceContent = [Ecosystems,  RenewableEnergy, Pollution, Conservation,  ClimateChange];
+const EnvironmentalScienceContent = [Ecosystems, 0, RenewableEnergy, 1,Pollution,2, Conservation,  ClimateChange,3];
 
 export function content() {
     return EnvironmentalScienceContent;
